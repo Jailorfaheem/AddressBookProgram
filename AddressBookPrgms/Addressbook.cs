@@ -99,5 +99,28 @@ namespace AddressBook
             }
 
         }
+        public void DeleteContact()
+        {
+            Console.Write("Enter the first name of contact you want to delete : ");
+            Console.WriteLine();
+            string name = Console.ReadLine();
+            foreach (var Details in contacts)
+            {
+                if (name == Details.firstName)
+                {
+                    Console.WriteLine("Do you want to delete this Contact ? (y/n)");
+                    if (Console.ReadKey().Key == ConsoleKey.Y)
+                    {
+                        contacts.Remove(Details);
+                        Console.WriteLine("Contact is deleted.");
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Contact is not present");
+                }
+            }
+        }
     }
 }
