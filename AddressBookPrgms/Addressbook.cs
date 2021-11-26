@@ -362,7 +362,10 @@ namespace AddressBook
                 Console.WriteLine("Invalid selection, please select between 1 and 2");
             }
 
-
+        }
+        public void SortByFirstName(List<ContactDetails> contactDetails)
+        {
+            contacts = contactDetails.OrderBy(p => p.firstName).ToList();
         }
     }
 }
