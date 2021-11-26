@@ -90,7 +90,7 @@ namespace AddressBook
                     Details.zip = Console.ReadLine();
                     break;
                 }
-                //else statement from if input from user is mismatches with esisting contact first name
+                //else statement from if input from user is mismatches with existing contact first name
                 else
                 {
                     Console.WriteLine("No such entry found. Please check and try again!");
@@ -99,15 +99,19 @@ namespace AddressBook
             }
 
         }
+        //this method for delete contact details
         public void DeleteContact()
         {
+            //Taking input from user
             Console.Write("Enter the first name of contact you want to delete : ");
             Console.WriteLine();
             string name = Console.ReadLine();
             foreach (var Details in contacts)
             {
+                //if statement for matching first name of existing contact with input taken from user
                 if (name == Details.firstName)
                 {
+                    //if condition true then contact is deleted
                     Console.WriteLine("Do you want to delete this Contact ? (y/n)");
                     if (Console.ReadKey().Key == ConsoleKey.Y)
                     {
@@ -116,6 +120,7 @@ namespace AddressBook
                         break;
                     }
                 }
+                //if condition is false then else condition is executed
                 else
                 {
                     Console.WriteLine("Contact is not present");
