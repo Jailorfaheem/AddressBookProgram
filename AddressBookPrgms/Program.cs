@@ -75,8 +75,11 @@ namespace AddressBookSystem
                 AddressBook.AddTo(book);
                 AddressBook.WriteAddressBookUsingStreamWriter();
                 AddressBook.ReadAddressBookUsingStreamReader();
+                AddressBook.CsvSerialise();
+                AddressBook.CsvDeserialise();
+                AddressBook.JsonSerializeAddressBook();
+                //AddressBook.JsonDeserializationAddressBook();
                 numberBook++;
-
             }
 
         }
