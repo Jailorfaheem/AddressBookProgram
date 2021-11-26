@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace AddressBookSystem
 {
     class AddressBook
     {
@@ -18,7 +19,8 @@ namespace AddressBook
         public static Dictionary<string, List<ContactDetails>> stateBook = new Dictionary<string, List<ContactDetails>>();
 
         //declaring it static so that we dont need to create an object in the program.cs
-        public static void AddTo(string name)              //this method is used to pass the new address book name to the dictionary
+        //this method is used to pass the new address book name to the dictionary
+        public static void AddTo(string name)
         {
             addressBook.Add(name, contacts);
         }
@@ -36,6 +38,8 @@ namespace AddressBook
             contact.address = Console.ReadLine();
             Console.Write("Enter phone number : ");
             contact.phoneNumber = Console.ReadLine();
+            Console.Write("Enter Email Id : ");
+            contact.email = Console.ReadLine();
             Console.Write("Enter city Name : ");
             contact.city = Console.ReadLine();
             Console.Write("Enter state Name : ");
@@ -388,5 +392,50 @@ namespace AddressBook
                 Console.WriteLine("Invalid Selection,please select between 1 to 3 ");
             }
         }
+        //This method for writing address book with person contact into .txt file using File IO
+        public static void WriteAddressBookUsingStreamWriter()
+        {
+            //provide file path
+            string path = @"C:\Users\Admin\source\repos\AddressBookSystem\Files\AddressBookWriterFile.txt";
+            using (StreamWriter se = File.AppendText(path))
+            {
+                //iterating each element from addressbook dictionary
+                foreach (KeyValuePair<string, List<ContactDetails>> item in addressBook)
+                {
+                    foreach (var items in item.Value)
+                    {
+                        //writing in .txt file
+                        se.WriteLine("First Name -" + items.firstName);
+                        se.WriteLine("Last Name -" + items.lastName);
+                        se.WriteLine("Address -" + items.address);
+                        se.WriteLine("Phone Number - " + items.phoneNumber);
+                        se.WriteLine("Email ID -" + items.email);
+                        se.WriteLine("City -" + items.city);
+                        se.WriteLine("State -" + items.state);
+                        se.WriteLine("ZIP code -" + items.zip);
+                    }
+                    se.WriteLine("--------------------------------------------------------------");
+                }
+                se.Close();
+                Console.WriteLine(File.ReadAllText(path));
+            }
+        }
+        //This method for readingg address book with person contact from .txt file using File IO
+        public static void ReadAddressBookUsingStreamReader()
+        {
+            Console.WriteLine("The contact List using StreamReader method ");
+
+            string path = @"C:\Users\Admin\source\repos\AddressBookSystem\Files\AddressBookWriterFile.txt";
+            using (StreamReader se = File.OpenText(path))
+            {
+                string s = " ";
+                while ((s = se.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+
+            }
+        }
+
     }
 }

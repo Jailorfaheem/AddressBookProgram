@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AddressBook
+namespace AddressBookSystem
 {
     class Program
     {
@@ -65,13 +65,21 @@ namespace AddressBook
                             obj.SortByChoice(AddressBook.contacts);
                             break;
                     }
+
                     Console.WriteLine("Do you wish to continue? Press (y/n)");
                     keyPress = Console.ReadLine();
+
+
                 }
                 //calling method to add new addressbook in dictionary
                 AddressBook.AddTo(book);
+                AddressBook.WriteAddressBookUsingStreamWriter();
+                AddressBook.ReadAddressBookUsingStreamReader();
                 numberBook++;
+
             }
+
         }
+
     }
 }

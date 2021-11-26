@@ -1,0 +1,8 @@
+﻿First Name -Faheem
+Last Name -jailor
+Address -Solapur
+Phone Number - 748596321456
+Email ID - abc123@gmail.com
+City -solapur
+State -Maharashtra
+ZIP -4512632
