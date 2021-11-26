@@ -46,6 +46,12 @@ namespace AddressBook
                         case 4:
                             obj.DeleteContact();
                             break;
+                        case 5:
+                            AddressBook.SearchCity();
+                            break;
+                        case 6:
+                            AddressBook.SearchState();
+                            break;
                     }
                     Console.WriteLine("Do you wish to continue? Press (y/n)");
                     keyPress = Console.ReadLine();

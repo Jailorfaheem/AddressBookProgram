@@ -156,5 +156,44 @@ namespace AddressBook
             return 0;
         }
 
+        //This method for search person using city name
+        public static void SearchCity()
+        {
+            Console.WriteLine("Please Enter Name of city");
+            string city = Console.ReadLine();
+            foreach (var Details in contacts)
+            {
+                var person = contacts.Find(p => p.city.Equals(city));
+                if (person != null)
+                {
+                    Console.WriteLine("{0} person in the {1}", Details.firstName, city);
+                }
+                else
+                {
+
+                }
+            }
+
+        }
+
+        //This method for search person using state name
+        public static void SearchState()
+        {
+            Console.WriteLine("Please Enter Name of State");
+            string state = Console.ReadLine();
+            foreach (var Details in contacts)
+            {
+                var person = contacts.Find(p => p.state.Equals(state));
+                if (person != null)
+                {
+                    Console.WriteLine("{0} person in the {1}", Details.firstName, state);
+                }
+                else
+                {
+
+                }
+            }
+
+        }
     }
 }
