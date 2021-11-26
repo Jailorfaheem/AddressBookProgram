@@ -367,5 +367,26 @@ namespace AddressBook
         {
             contacts = contactDetails.OrderBy(p => p.firstName).ToList();
         }
+        public void SortByChoice(List<ContactDetails> contactDetails)
+        {
+            Console.WriteLine("Select the option to sort the contct list : \n1 : City Name \n2 : State Name \n3. Zip Code");
+            int num = Convert.ToInt32(Console.ReadLine());
+            if (num == 1)
+            {
+                contacts = contactDetails.OrderBy(p => p.city).ToList();
+            }
+            if (num == 2)
+            {
+                contacts = contactDetails.OrderBy(p => p.state).ToList();
+            }
+            if (num == 3)
+            {
+                contacts = contactDetails.OrderBy(p => p.zip).ToList();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Selection,please select between 1 to 3 ");
+            }
+        }
     }
 }
