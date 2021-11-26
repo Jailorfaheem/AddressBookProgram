@@ -436,6 +436,47 @@ namespace AddressBookSystem
 
             }
         }
+        //This method for writing address book with person contact into .csv file using File IO
+        public static void CsvSerialise()
+        {
+            try
+            {
+                string csvPath = @"C:\Users\Admin\source\repos\AddressBookSystem\Files\CsvFile.csv";
+                var writer = File.AppendText(csvPath);
+
+
+                foreach (KeyValuePair<string, List<ContactDetails>> item in addressBook)
+                {
+                    foreach (var items in item.Value)
+                    {
+                        writer.WriteLine(items.firstName + ", " + items.lastName + ", " + items.phoneNumber + ", " + items.email + ", " + items.city + ", " + items.state + ", " + items.zip + ".");
+
+                    }
+                    writer.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        //This method for readingg address book with person contact from .csv file using File IO
+        public static void CsvDeserialise()
+        {
+            string csvPath = @"C:\Users\Admin\source\repos\AddressBookSystem\Files\CsvFile.csv";
+            using (var reader = new StreamReader(csvPath))
+
+            {
+                string s = " ";
+                while ((s = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+
+            }
+
+
+        }
 
     }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WAC7Ueh/5EhBA0ksAPMUTVgpexXqRzDvJqXGZQanehQkz3EGsbvrGWlYCIq8kFQ1R93uLnPAvXXDehGIbclNWQ==",
+  "dgSpecHash": "ERtc3YHohuuVq0VBYnK4I0WsRRWcVzTLhix+oZgmghfqQfkFqivbYGqAjGCeQN6vyTprzSisTBMwC8/vcG5qeg==",
   "success": true,
   "projectFilePath": "C:\\Users\\dc\\source\\repos\\AddressBookPrgms\\AddressBookPrgms\\AddressBookPrgms.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\dc\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512"
+  ],
   "logs": []
 }
